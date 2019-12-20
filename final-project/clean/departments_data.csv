@@ -1,0 +1,174 @@
+"","University.Name","CS.Score","CS.rank","Web","University.Rank","University.Score","ID","Department","College","Affiliated","Comments.about.inclusion","total_citations"
+"1","Air Force Institute of Technology",0,0,"https://www.afit.edu/ENG/",0,0,1,"ECE","Engineering & management","No","have ee, ce, cs people lists; we included only cs",201
+"2","Arizona State University",3,48,"http://cidse.engineering.asu.edu/",129,42,2,"School of Computing","Own","No","we did not include industrial engineering, we did not included a few CE faculty; this list did not include ECE department which is in different college",155111
+"3","Auburn University",2.2,90,"https://www.eng.auburn.edu/comp/index.html",99,48,3,"CS & Software Engineering","Engineering","No","",25132
+"4","Binghamton University SUNY",2,112,"https://www.binghamton.edu/cs/",86,51,4,"CS","?","No","",47904
+"5","Boston University",3,48,"http://www.bu.edu/cs/",39,64,5,"CS","?","Outside the primary list","affiliated not included",157537
+"6","Brandeis University",2.3,82,"http://www.brandeis.edu/departments/computer-science/",34,67,6,"CS","CS","No","",28212
+"7","Brigham Young University",2.2,90,"https://cs.byu.edu/",68,57,7,"CS","?","No","",61168
+"8","Brown University",3.7,20,"https://cs.brown.edu/",14,87,8,"CS","No","Within the primary faculty list, clearly annotated","affiliated included",164863
+"9","California Institute of Technology",4.2,11,"http://www.cms.caltech.edu/",12,89,10,"CS+Math","Engineering and Applied Sci","Outside + Within, clearly annotated","have joint CS+Math, we excluded a few obvious non-CS from the list;  affiliated not included",150177
+"10","Carnegie Mellon University",5,1,"https://www.scs.cmu.edu/",24,75,11,"School of CS","Own","Within, clearly annotated ","affiliated included",1245401
+"11","Case Western Reserve University",2.4,70,"http://engineering.case.edu/eecs/",37,65,12,"EECS","Engineering","Outside","affiliated not included; EECS has separate CS and ECE lists, we studied the ECE list and included some of them",30317
+"12","Claremont Graduate University",0,0,"https://www.cgu.edu/school/center-for-information-systems-and-technology/",0,0,13,"Info System & Tech","?","No","",8632
+"13","Clemson University",2.3,82,"http://www.clemson.edu/cecas/departments/computing/",66,58,14,"CS","School of Computing","Outside","affiliated not included",53783
+"14","College of William and Mary",2.4,70,"http://www.wm.edu/as/computerscience/",32,68,15,"CS","Science","Within","affiliated included",27893
+"15","Colorado School of Mines",2.1,101,"http://cs.mines.edu/",82,52,16,"CS","EECS","No","",19585
+"16","Colorado State University",2.4,70,"https://www.cs.colostate.edu/cstop/",129,42,17,"CS","Natural Sciences","Outside + Within, clearly annotated","they have 3 joint appointments in the primary list -- we included them; they have 4 ""joint faculty"" outside the primary list -- we did not include them",101877
+"17","Columbia University",4,15,"http://www.cs.columbia.edu/",5,95,18,"CS","Engineering","Outside + Within, clearly annotated","we included joint appointments from the primary list;  we did not include 8 affiliated outside the primary list",758337
+"18","Cornell University",4.5,6,"https://www.cs.cornell.edu/",15,85,19,"CS","CIS - CS, Information Sci, Statistical Sci","Within, clearly annotated","affiliated included",689389
+"19","CUNY Graduate School and University Center",2.3,82,"http://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Doctoral-Programs/Computer-Science",0,0,9,"CS","?","No","",252824
+"20","Dartmouth College",3.1,40,"http://web.cs.dartmouth.edu/",11,90,20,"CS","No","Outside","affiliated not included",122111
+"21","DePaul University",0,0,"http://www.cdm.depaul.edu/about/Pages/School-of-Computing.aspx",124,43,21,"Computing","School of Computing","No","",53919
+"22","Drexel University",2.2,90,"http://drexel.edu/cci/academics/departments/computer-science/",96,49,22,"CS","Computing & Informatics","No","",47282
+"23","Duke University",3.6,25,"http://www.cs.duke.edu/",8,92,23,"CS","No","Within, clearly annotated","affiliated included",335356
+"24","Florida Atlantic University",0,0,"http://www.ceecs.fau.edu/",0,0,24,"CEECS","ECS","No","This is a big ee+ce+cs department; we manually excluded non-CS people",57368
+"25","Florida Institute of Technology",0,0,"https://cs.fit.edu/",171,33,25,"CS","?","No","",17575
+"26","Florida International University",0,0,"https://www.cis.fiu.edu/",0,0,26,"CIS","?","No","",46553
+"27","Florida State University",2.3,82,"http://www.cs.fsu.edu/",92,50,27,"CS","Science","No","",54415
+"28","George Mason University",2.5,67,"http://cs.gmu.edu/",143,39,28,"CS","Engineering","Outside","affiliated not included",139011
+"29","George Washington University",2.3,82,"https://www.cs.seas.gwu.edu/",56,60,29,"CS","Engineering & Applied Science","No","",17407
+"30","Georgia Institute of Technology",4.3,9,"https://www.cc.gatech.edu/",34,67,30,"College of Computing","Own","Outside","included all from college of computing (3 departments including soft and CE); did not include adjunct faculty, most of them are from ECE department",655281
+"31","Georgia State University",2,112,"http://shared.cas.gsu.edu/department/computer-science/",0,0,31,"CS","Science","Outside","affiliated not included",40642
+"32","Harvard University",3.9,18,"https://www.seas.harvard.edu/computer-science",2,98,32,"CS","Engineering and Applied Sci","Within, clearly annotated","affiliated included",203865
+"33","Illinois Institute of Technology",2.1,101,"https://science.iit.edu/computer-science",103,47,33,"CS","Science","No","",45747
+"34","Indiana State University",0,0,"http://www.indstate.edu/cas/mathcs/",0,0,34,"CS & Maths","Arts&Sciences","No","",612
+"35","Indiana University Bloomington",2.9,52,"https://www.cs.indiana.edu/",86,51,35,"CS","School of Informatics & Computing","Within, clearly annotated","only included CS people, did not include faculty from Intelligent System Engineering, Informatics, and Information and Library Science",157815
+"36","Iowa State University",2.6,63,"http://www.cs.iastate.edu/",111,45,36,"CS","?","Outside","affiliated not included",79387
+"37","Johns Hopkins University",3.5,28,"https://www.cs.jhu.edu/",10,91,37,"CS","Engineering","Outside + Within, NOT clearly annotated","affilliated outside of the primary list not included",366874
+"38","Kansas State University",2.2,90,"https://www.cs.ksu.edu/",135,40,38,"CS","?","No","",20818
+"39","Kent State University",0,0,"http://www.kent.edu/cs",188,30,39,"CS","?","No","",15504
+"40","Lehigh University",2.1,101,"http://www.cse.lehigh.edu/",44,63,41,"CSE","Engineering","No","CSE department with a single faculty list, all of them are CS-related, included all of them",49769
+"41","LIU Post",0,0,"http://liu.edu/CWPost/Academics/School-of-Computer-Science-Innovation-and-Management-Engineering/Academic-Programs/Computer-Science",114,45,40,"CS","CSE","","",0
+"42","Louisiana State University Baton Rouge",2.1,101,"http://www.lsu.edu/eng/cse/",135,40,42,"CSE","EECS","No","CSE department with a single faculty list, all of them are CS-related, included all of them",26855
+"43","Louisiana Tech University",0,0,"http://coes.latech.edu/cs/index.php/en/",202,27,43,"CS","?","No","",0
+"44","Massachusetts Institute of Technology",5,1,"https://www.eecs.mit.edu/",7,94,44,"EECS","Engineering","Within, clearly annotated","affiliated included; EECS department with clearly annotated CS people, CS people included",1100435
+"45","Michigan State University",2.8,56,"http://www.cse.msu.edu/",82,52,45,"CSE","Engineering","Outside","affiliated not included; CSE department with a single faculty list, all of them are CS-related, included all of them",270938
+"46","Michigan Technological University",0,0,"http://www.mtu.edu/cs/",118,44,46,"CS","?","Within","affiliated included",8633
+"47","Mississippi State University",0,0,"http://www.cse.msstate.edu/",176,32,47,"CSE","?","No","",6707
+"48","Missouri University of Science & Technology",2,112,"http://cs.mst.edu/",164,35,48,"CS","?","Outside","affiliated not included",38699
+"49","Montana State University",0,0,"https://www.cs.montana.edu/",210,26,49,"CS","Engineering","No","",8365
+"50","Naval Postgraduate School",2.4,70,"http://my.nps.edu/web/cs",0,0,50,"CS","?","No","",29517
+"51","New Jersey Institute of Technology",2.2,90,"https://cs.njit.edu/",135,40,51,"CS","Computing","No","",76757
+"52","New Mexico Institute of Mining and Technology",0,0,"https://www.cs.nmt.edu/",27,54,52,"CS","?","No","",2183
+"53","New Mexico State University",0,0,"https://www.cs.nmsu.edu/wp/",220,24,53,"CS","?","No","",17647
+"54","New York University",3.4,29,"https://www.cs.nyu.edu/home/index.html",36,66,54,"CS","Courant Institute of Math Sciences and Tandon","Outside","affiliated not included; our data joined NYU CS and NYU Tandon",411851
+"55","North Carolina State University",3,48,"https://www.csc.ncsu.edu/",92,50,56,"CS","Engineering","No","there is a large ECE department (#34) that is not included",131199
+"56","North Dakota State University",0,0,"https://www.ndsu.edu/cs/",188,30,57,"CS","?","No","",1427
+"57","Northeastern University",2.7,60,"http://www.ccis.northeastern.edu/",39,64,58,"College of CIS","Own","Outside + Within, clearly annotated","affiliated outside of the primary list not included",382775
+"58","Northwestern University",3.3,34,"http://www.mccormick.northwestern.edu/eecs/computer-science/",12,89,59,"EECS","Engineering","No","we count only faculty listed as CS division faculty",118615
+"59","Nova Southeastern University",0,0,"http://cec.nova.edu/",214,25,60,"CEC","Engineering & Computing","No","",27867
+"60","Oakland University",0,0,"https://wwwp.oakland.edu/secs/departments/computer-science-and-engineering/",0,0,61,"CSE","Engineering & CS","No","",11061
+"61","Ohio State University",3.3,34,"https://cse.osu.edu/",54,61,62,"CSE","Engineering","Outside + Within, clearly annotated","affiliated outside the primary list not included; CSE department with a single faculty list, all of them are CS-related, included all of them",154832
+"62","Oklahoma State University",0,0,"http://cs.okstate.edu/",152,37,63,"CS","?","No","",3845
+"63","Old Dominion University",0,0,"https://www.odu.edu/compsci",210,26,64,"CS","Science","No","",24854
+"64","Oregon Health and Science University",2.2,90,"http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments/csee/",0,0,65,"CSEE","Medicine","No","CSEE department with a single faculty list, all of them are CS-related, included all of them",8693
+"65","Oregon State University",2.5,67,"http://eecs.oregonstate.edu/",143,39,66,"EECS","Engineering","Outside","affiliated not included; EECS department with a single faculty list, we manually removed EE faculty",43983
+"66","Pennsylvania State University University Park",3.4,29,"http://www.eecs.psu.edu/",50,62,67,"EECS","Engineering","Within, clearly annotated","EECS department, included all people listed as CSE faculty, removed a few EE faculty",203469
+"67","Portland State University",0,0,"https://www.pdx.edu/computer-science/",0,0,68,"CS","Engineering & CS","No","",90870
+"68","Princeton University",4.4,8,"https://www.cs.princeton.edu/",1,100,69,"CS","No","Outside","affiliated not included",267976
+"69","Purdue University West Lafayette",3.7,20,"https://www.cs.purdue.edu/",60,59,70,"CS","Science","Outside","affiliated not included",173325
+"70","Rensselaer Polytechnic Institute",2.9,52,"https://science.rpi.edu/computer-science",39,64,71,"CS","Science","Outside","affiliated not included",145756
+"71","Rice University",3.7,20,"http://www.cs.rice.edu/",15,85,72,"CS","Engineering","Outside","affiliated not included",130660
+"72","Rutgers The State University of New Jersey New Brunswick",3.3,34,"https://www.cs.rutgers.edu/",70,56,73,"CS","Arts&Sciences","Outside","affiliated not included",250853
+"73","Southern Methodist University",2,112,"http://www.smu.edu/Lyle/Departments/CSE",56,60,74,"CSE","Engineering","No","CSE department with a single faculty list, included all but 3",6185
+"74","Stanford University",5,1,"https://cs.stanford.edu/",5,95,75,"CS","Engineering","Outside","affiliated not included",839762
+"75","Stevens Institute of Technology",2.1,101,"https://www.stevens.edu/schaefer-school-engineering-science/departments/computer-science",71,55,76,"CS","Engineering & Science","No","",27277
+"76","Stony Brook University SUNY",3.1,40,"https://www.cs.stonybrook.edu/",96,49,77,"CS","Engineering and Applied Sci","Outside","affiliated not included",191593
+"77","Syracuse University",2.5,67,"http://eng-cs.syr.edu/our-departments/electrical-engineering-and-computer-science/",60,59,78,"EECS","Engineering & CS","No","we manually selected CS faculty from the list",58224
+"78","Temple University",2,112,"https://cis.temple.edu/",118,44,79,"CIS","Science","No","",187017
+"79","Texas A&M University College Station",3.1,40,"https://engineering.tamu.edu/cse/",74,54,80,"CSE","Engineering","Outside","affiliated not included; all but 1 CE faculty are in distributed/parallel area so we removed only one VLSI faculty",167405
+"80","Texas Tech University",0,0,"http://www.depts.ttu.edu/cs/faculty/",176,32,81,"CS","Engineering","No","",17352
+"81","Towson University",0,0,"http://www.towson.edu/fcsm/departments/computerinfosci/",51,61,82,"CIS","CIS","No","",11074
+"82","Tufts University",2.4,70,"http://www.cs.tufts.edu/",27,74,83,"CS","Engineering","Outside","affiliated not included",54531
+"83","University Albany SUNY",2.1,101,"http://www.albany.edu/computer-science/",146,38,84,"CS","Engineering & Science","Outside","affiliated not included",29350
+"84","University Buffalo SUNY",2.6,63,"http://engineering.buffalo.edu/computer-science-engineering.html",99,48,85,"CSE","?","Outside","affiliated not included; only 1 VLSI faculty excluded",133610
+"85","University of Alabama",0,0,"http://cs.ua.edu/",103,47,86,"CS","Engineering","Within","affiliated included",21483
+"86","University of Alabama Birmingham",0,0,"http://www.uab.edu/cas/computerscience/",159,36,87,"CIS","Science & Arts","Outside","affiliated not included",19693
+"87","University of Alabama Huntsville",0,0,"http://www.uah.edu/science/departments/computer-science/",197,28,88,"CS","Science","No","",16577
+"88","University of Arizona",3.1,40,"https://www.cs.arizona.edu/",124,43,89,"CS","Science","Outside","affiliated not included",98022
+"89","University of Arkansas Fayetteville",0,0,"http://computer-science-and-computer-engineering.uark.edu/",135,40,90,"CSE","Engineering","No","",18769
+"90","University of Arkansas Little Rock",0,0,"http://ualr.edu/computerscience/",0,0,91,"CS","?","Outside","affiliated not included",6353
+"91","University of California Berkeley",5,1,"https://cs.berkeley.edu/",20,78,92,"EECS","Engineering","No","EECS department, excluded clearly EE people included others",1303095
+"92","University of California Davis",3.3,34,"http://www.cs.ucdavis.edu/",44,63,93,"CS","Engineering","No","",230099
+"93","University of California Irvine",3.4,29,"https://www.ics.uci.edu/",39,64,94,"CS","Informatics & CS","No","",277166
+"94","University of California Los Angeles",4.1,13,"http://www.cs.ucla.edu/",24,75,95,"CS","Engineering","Within, clearly annotated","affiliated included",594483
+"95","University of California Riverside",2.8,56,"http://www1.cs.ucr.edu/",118,44,96,"CSE","Engineering","Outside","affiliated not included; CSE department with a single faculty list, all of them are CS-related, included all of them",181028
+"96","University of California San Diego",4,15,"http://www.cs.ucsd.edu/",44,63,97,"CSE","Engineering","Within, clearly annotated","affiliated included; CSE department with a single faculty list,excluded a few VLSI faculty",699033
+"97","University of California Santa Barbara",3.3,34,"https://www.cs.ucsb.edu/",37,65,98,"CS","Engineering","Outside","affiliated not included",369538
+"98","University of California Santa Cruz",2.8,56,"https://www.soe.ucsc.edu/departments/computer-science/",79,53,99,"CS","Engineering","No","",88991
+"99","University of Central Florida",2.2,90,"http://www.cs.ucf.edu/",176,32,100,"CS","?","Within","affiliated included",152685
+"100","University of Chicago",3.3,34,"https://www.cs.uchicago.edu/",3,97,101,"CS","No","Within, clearly annotated","affiliated included, including listed faculty from Toyota Technological Institute",263625
+"101","University of Cincinnati",2,112,"http://eecs.ceas.uc.edu/",135,40,102,"EE and Computing Systems","Engineering & CS","No","we manually selected CS faclulty from the list",13137
+"102","University of Colorado Boulder",3.1,40,"http://www.colorado.edu/cs/",92,50,103,"CS","Engineering and Applied Sci","Outside","affiliated not included",123503
+"103","University of Colorado Colorado Springs",0,0,"https://www.uccs.edu/~cs/",39,43,104,"CS","?","No","",9673
+"104","University of Colorado Denver",0,0,"http://www.ucdenver.edu/academics/colleges/Engineering/Programs/Computer-Science-and-Engineering/Pages/ComputerScienceEngineering.aspx",197,28,105,"CSE","Engineering & Applied Science","No","CSE department with a single faculty list, all of them are CS-related, included all of them",2988
+"105","University of Connecticut",2.3,82,"http://www.cse.uconn.edu/",60,59,106,"CSE","Engineering","No","CSE department with a single faculty list, all of them are CS-related, included all of them",44267
+"106","University of Delaware",2.4,70,"http://www.cis.udel.edu/",79,53,107,"CIS","Engineering","No","",58452
+"107","University of Denver",0,0,"https://ritchieschool.du.edu/departments/computer-science/",86,51,108,"CS","Engineering & CS","Outside","affiliated not included",7280
+"108","University of Florida",3,48,"https://www.cise.ufl.edu/",50,62,109,"CISE","Engineering","No","CISE department with a single faculty list, all of them are CS-related, included all of them",102406
+"109","University of Georgia",2.2,90,"http://www.cs.uga.edu/",56,60,110,"CS","Arts&Sciences","No","",58135
+"110","University of Hawaii Manoa",0,0,"http://www.ics.hawaii.edu/",169,34,111,"ICS","?","No","included computer science faculty",21420
+"111","University of Houston",2.1,101,"http://www.uh.edu/nsm/computer-science/",194,29,112,"CS","Natural Sciences & Applied Mathmatics","Outside","affiliated not included",63319
+"112","University of Idaho",0,0,"https://www.uidaho.edu/engr/departments/cs/",171,33,113,"CS","?","No","",4254
+"113","University of Illinois Chicago",2.7,60,"https://www.cs.uic.edu/",152,37,114,"CS","Engineering","No","",153110
+"114","University of Illinois Urbana Champaign",4.6,5,"https://cs.illinois.edu/",44,63,115,"CS","Engineering","Outside","affiliated not included; 46 faculty they list as 'affiliates' are mostly from ECE",620842
+"115","University of Iowa",2.6,63,"https://cs.uiowa.edu/",82,52,116,"CS","Liberal Arts & Sci","Outside","affiliated not included",35737
+"116","University of Kansas",2.3,82,"http://www.eecs.ku.edu/",118,44,117,"EECS","Engineering","Within, clearly annotated","EECS department with a single list, we manually selected CS faculty",58301
+"117","University of Kentucky",2.2,90,"http://www.cs.uky.edu/",133,41,118,"CS","Engineering","No","",40963
+"118","University of Louisiana Lafayette",0,0,"http://computing.louisiana.edu/",0,0,119,"CS","Computing & Informatics","No","",27201
+"119","University of Louisville",0,0,"http://louisville.edu/speed/computer/",171,33,120,"CECS","Engineering","No","CECS department with a single faculty list, all of them are CS-related, included all of them",16808
+"120","University of Maine",0,0,"https://umaine.edu/cs/",183,31,121,"CS","Computing & Info Science","No","",8202
+"121","University of Maryland Baltimore County",2.4,70,"https://www.csee.umbc.edu/",159,36,122,"CSEE","Engineering & Info Science","Outside","affiliated not included; we manually selected CS faculty",98644
+"122","University of Maryland College Park",4,15,"https://www.cs.umd.edu/",60,59,123,"CS","Comp&Math&Natural","Outside","affiliated not included",384230
+"123","University of Massachusetts Amherst",3.6,25,"https://www.cics.umass.edu/",74,54,124,"College Info&CS","Own","No","",328616
+"124","University of Massachusetts Boston",0,0,"http://www.cs.umb.edu/",220,24,125,"CS","Science & Math","No","",19333
+"125","University of Massachusetts Lowell",0,0,"https://www.uml.edu/Sciences/computer-science/",152,37,126,"CS","Science","No","",28065
+"126","University of Memphis",0,0,"http://www.memphis.edu/cs/",0,0,127,"CS","?","Outside","affiliated not included",24810
+"127","University of Michigan Ann Arbor",4.1,13,"https://www.eecs.umich.edu/",27,74,128,"EECS","Engineering","No","EECS department, we manually selected CS faculty",375142
+"128","University of Minnesota Twin Cities",3.4,29,"https://www.cs.umn.edu/",71,55,129,"CS","Science&Engineering","No","",383518
+"129","University of Mississippi",0,0,"http://cs.olemiss.edu/",135,40,130,"CIS","?","Outside","affiliated not included",5949
+"130","University of Missouri",2.1,101,"http://engineering.missouri.edu/cs/",111,45,131,"CS","Engineering","Outside","affiliated not included",42041
+"131","University of Missouri Kansas City",0,0,"https://sce.umkc.edu/",210,26,132,"CSEE","Computing & Engineering","Outside","affiliated not included; we manually selected CS faculty",24048
+"132","University of Nebraska Lincoln",2.4,70,"http://cse.unl.edu/",111,45,133,"CSE","Engineering","No","CSE department with a single faculty list, all of them are CS-related, included all of them",101474
+"133","University of Nebraska Omaha",0,0,"https://www.unomaha.edu/college-of-information-science-and-technology/computer-science/",0,0,134,"CS","IST","No","",3548
+"134","University of Nevada Reno",0,0,"https://www.unr.edu/cse/",197,28,135,"CSE","?","No","CSE department with a single faculty list, all of them are CS-related, included all of them",22355
+"135","University of New Mexico",2.3,82,"http://www.cs.unm.edu/",176,32,136,"CS","Engineering","Outside","affiliated not included",60410
+"136","University of New Orleans",0,0,"http://www.uno.edu/cos/computer-science/",0,0,137,"CS","Science","No","",5886
+"137","University of North Carolina Chapel Hill",3.6,25,"http://cs.unc.edu/",30,71,138,"CS","No","No","",186737
+"138","University of North Carolina Charlotte",2.1,101,"http://cs.uncc.edu/",202,27,139,"CS","Computing & Informatics","No","",29160
+"139","University of North Texas",0,0,"http://computerscience.engineering.unt.edu/",0,0,140,"CSE","?","No","CSE department with a single faculty list, all of them are CS-related, included all of them",26512
+"140","University of Notre Dame",2.7,60,"https://cse.nd.edu/",15,85,141,"CSE","Engineering","Outside","affiliated not included; CSE department, only one non CS faculty (CMOS) excluded",104202
+"141","University of Oklahoma",2,112,"http://www.ou.edu/content/coe/cs/",111,45,142,"CS","Engineering","No","",13407
+"142","University of Oregon",2.6,63,"https://cs.uoregon.edu/",103,47,143,"CS","?","No","",31049
+"143","University of Pennsylvania",3.8,19,"https://www.cis.upenn.edu/index.php",8,92,144,"CS","Engineering","Outside","affiliated not included",275086
+"144","University of Pittsburgh",2.9,52,"https://cs.pitt.edu/people/",68,57,145,"CS","School of Computing & Information","No","",62890
+"145","University of Rochester",2.9,52,"http://www.cs.rochester.edu/",32,68,146,"CS","Engineering and Applied Sci","Outside","affiliated not included",104689
+"146","University of South Carolina",2.1,101,"https://www.sc.edu/study/colleges_schools/engineering_and_computing/study/areas_of_study/computer_science_and_engineering/",107,46,147,"CSE","Engineering & Computing","No","CSE department with a single faculty list, all of them are CS-related, included all of them",47154
+"147","University of South Florida",2.1,101,"http://www.usf.edu/engineering/cse/research/index.aspx",159,36,148,"CSE","Engineering","Outside","affiliated not included; CSE department with a single faculty list, all of them are CS-related, included all of them",76383
+"148","University of Southern California",3.7,20,"http://www.cs.usc.edu/",23,77,149,"CS","Engineering","Outside","affiliated not included",282878
+"149","University of Southern Mississippi",0,0,"https://www.usm.edu/computing/welcome-computer-science",220,24,150,"Computing","Computing","No","",5608
+"150","University of Tennessee Knoxville",2.4,70,"https://www.eecs.utk.edu/",103,47,151,"EECS","Engineering","No","EECS department, we manually selected CS faculty",198864
+"151","University of Texas Arlington",2.2,90,"https://cse.uta.edu/",0,0,152,"CSE","Engineering","No","EECS department, we manually selected CS faculty",75253
+"152","University of Texas Austin",4.3,9,"https://www.cs.utexas.edu/",56,60,153,"CS","Natural Sciences","No","",477164
+"153","University of Texas Dallas",2.4,70,"http://cs.utdallas.edu/",46,38,154,"CS","Engineering","No","",199856
+"154","University of Texas El Paso",0,0,"http://www.cs.utep.edu/",0,0,155,"CS","?","Outside","affiliated not included",26978
+"155","University of Texas San Antonio",0,0,"http://www.cs.utsa.edu/",0,0,156,"CS","?","Outside","affiliated not included",77421
+"156","University of Tulsa",0,0,"https://utulsa.edu/department/computer-science",86,51,157,"CS","Engineering & Natural Science","No","",13149
+"157","University of Utah",3.1,40,"http://www.cs.utah.edu/",111,45,158,"School of Computing","Own","No","",144426
+"158","University of Virginia",3.4,29,"http://www.cs.virginia.edu/",24,75,159,"CS","Engineering","Outside + Within, clearly annotated","included all within primary faculty list, excluded those outside",137826
+"159","University of Washington",4.5,6,"https://www.cs.washington.edu/",54,61,160,"CS","CS & Engineering","Outside","affiliated not included",514099
+"160","University of Wisconsin Madison",4.2,11,"https://www.cs.wisc.edu/",44,63,161,"CS","Letters&Science","Outside","affiliated not included",311503
+"161","University of Wisconsin Milwaukee",0,0,"https://uwm.edu/engineering/academics-2/departments/computer-science/",0,0,162,"CS","Engineering & Applied Science","No","",6091
+"162","University of Wyoming",0,0,"http://www.uwyo.edu/cosc/",171,33,163,"CS","Engineering & Applied Science","No","",4224
+"163","Utah State University",0,0,"http://www.cs.usu.edu/",220,24,164,"CS","?","No","",14167
+"164","Vanderbilt University",2.8,56,"https://engineering.vanderbilt.edu/eecs/",15,85,165,"EECS","Engineering","Outside","affiliated not included; EECS department, we manually selected CS faculty",91639
+"165","Virginia Commonwealth University",0,0,"https://egr.vcu.edu/departments/computer/",164,35,166,"CS","Engineering","No","",23024
+"166","Virginia Tech",3.1,40,"https://www.cs.vt.edu/",74,54,167,"CS","Engineering","No","",148722
+"167","Washington State University",2.4,70,"https://school.eecs.wsu.edu/",143,39,169,"EECS","Own","No","EECS department, we manually selected CS faculty",26823
+"168","Washington University in St. Louis",3.1,40,"https://cse.wustl.edu/Pages/default.aspx",19,84,170,"CSE","Engineering and Applied Sci","Outside","26 'collaborating' faculty -- we did not include them",165013
+"169","Wayne State University",2,112,"http://engineering.wayne.edu/cs/",0,0,171,"CS","Engineering","No","",44715
+"170","West Virginia University",2,112,"http://lcsee.statler.wvu.edu/",183,31,172,"CSEE","Engineering","No","CSEE department, we manually selected CS faculty",34333
+"171","Western Michigan University",0,0,"https://wmich.edu/cs",194,29,173,"CS","?","No","",21586
+"172","Worcester Polytechnic Institute",2.2,90,"https://www.wpi.edu/academics/departments/computer-science",60,59,174,"CS","?","Within","affiliated included",54401
+"173","Yale University",3.7,20,"http://cpsc.yale.edu/",3,97,175,"CS","No","Outside","affiliated not included",194797

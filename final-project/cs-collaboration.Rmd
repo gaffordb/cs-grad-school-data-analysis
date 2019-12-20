@@ -1,0 +1,387 @@
+---
+title: "CS Graduate Schools"
+author: "ben gafford"
+date: "12/10/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include = FALSE}
+require(dplyr)
+require(tidyr)
+require(rjson)
+require(tidyverse)
+require(reshape2)
+require(readr)
+require(ggplot2)
+require(factoextra)
+require(cluster)
+require(traj)
+require(kmlcov)
+require(fuzzyjoin)
+require(DMwR)
+require(caret)
+require(forecast)
+library(tseries)
+```
+
+```{r, include = FALSE}
+pubs       = read.csv(file.path("clean", "pubs.csv"      ))
+venues     = read.csv(file.path("clean", "venues.csv"    ))
+articles   = read.csv(file.path("clean", "articles.csv"  ))
+nsf_awards = read.csv(file.path("clean", "nsf-awards.csv"))
+rankings_data = read.csv(file.path("clean", "departments_data.csv"))
+
+```
+
+```{r, warning=FALSE, echo =FALSE}
+# Do some additional postprocessing to get rid of garbage data, and fix some schoolnames to fit other data
+rankings_data = rankings_data %>% filter(CS.rank != 0)
+rankings_data$University.Name = str_squish(str_replace_all(rankings_data$University.Name, 
+                                                           c("West Lafayette" = " ",
+                                                           "Ann Arbor" = " ",
+                                                           "SUNY" = " ",
+                                                           "Twin Cities" = " ",
+                                                           "Knoxville" = " ",
+                                                           "Lincoln" = " ",
+                                                           "College Station" = " ",
+                                                           "University Park" = " ")))
+
+articles_grouped = group_by(articles, title)
+
+# Plot some nsf awards by institution
+ggplot(nsf_awards) + geom_bar(mapping = aes(x = proposed_institution, fill = award_type), position=position_dodge()) + xlim(names(sort(table(nsf_awards$proposed_institution), decreasing=TRUE)[1:10])) + 
+  theme(axis.text.x  = element_text(angle=45, hjust = 1))
+
+# Get rid of junk column (not complete enough to be useful)
+nsf_reduced = select(nsf_awards, -current_institution)
+```
+
+This chart shows the number of nsf graduate research fellowships per institution.
+
+
+```{r, warning = FALSE, echo = FALSE}
+# Here, we scrub some of the cruff out so we can find more interesting trends between the more 'relevant' institutions
+pubs_reduced = pubs %>%
+  filter(!is.na(canonical) & !is.na(institution))  %>% 
+  distinct(title, .keep_all = TRUE) %>%
+  group_by(institution) %>% 
+  mutate(count = n()) %>%
+  #filter(count > 1214)
+  filter(count > 273) #%>%
+  #filter(year > 2017)
+
+# Number of faculty with at least 1 paper at each institution
+author_counts = pubs_reduced %>% filter(!is.na(canonical) & !is.na(institution))  %>% 
+  distinct(name, .keep_all = TRUE) %>% 
+  group_by(institution) %>%
+  summarise(author_count = n()) 
+
+# Before filtering:
+length(unique(pubs$institution))
+
+# After filtering:
+length(unique(pubs_reduced$institution))
+
+# Plot citations for this reduced dataset
+ggplot(pubs_reduced) + geom_bar(mapping = aes(x = institution)) + xlim(names(sort(table(pubs_reduced$institution), decreasing=TRUE)[1:10])) + 
+  theme(axis.text.x  = element_text(angle=45, hjust = 1))
+
+# Group by subdiscipline and institution, reformat to have each institution be 1 data point
+pubs_by_college = pubs_reduced %>% 
+  filter(!is.na(canonical) & !is.na(institution))  %>% 
+  group_by(umbrella, institution) %>%
+  count(umbrella, institution) %>%
+  spread(umbrella, n) 
+
+# Get mean authorship per subdiscipline
+authorship = pubs_reduced %>%
+  filter(!is.na(canonical) & !is.na(institution))  %>% 
+  group_by(umbrella, institution) %>%
+  summarise(mean_authors = mean(numauthors))
+
+# Reformat data to have each institution be one row
+authorship$umbrella = sub("^", "mean_authorcount_", authorship$umbrella )
+authorship = authorship %>%
+  spread(umbrella, mean_authors)
+
+# Make NA's into 0's 
+pubs_by_college[is.na(pubs_by_college)] = 0
+pubs_by_college = as.data.frame(pubs_by_college)
+authorship[is.na(authorship)] = 0
+
+# Merge data together
+pubs_by_college = left_join(x = pubs_by_college, y = authorship, by = "institution")
+pubs_by_college = left_join(pubs_by_college, author_counts)
+
+# Get counts for nsf awards (awardees and honorable mentions count the same)
+nsf_reduced = nsf_awards %>%
+  group_by(proposed_institution) %>%
+  summarise(nsf_fellows = n())
+
+# Make NA's into 0's
+nsf_reduced$nsf_fellows[is.na(nsf_reduced$nsf_fellows)] = 0
+
+# Fuzzy string join by college
+pubs_by_college = stringdist_left_join(pubs_by_college, nsf_reduced, 
+                            by = c("institution" = "proposed_institution"), max_dist = 1)
+
+# Get everything together
+rankings_data = rankings_data %>% select(c("University.Name", "CS.rank", "University.Rank", "total_citations")) %>% mutate(University.Name = str_squish(University.Name))
+
+pubs_by_college = stringdist_left_join(pubs_by_college, rankings_data, 
+                            by = c("institution" = "University.Name"), max_dist = 1)
+
+pubs_by_college = select(pubs_by_college, -proposed_institution, -University.Name)
+
+pubs_by_college = pubs_by_college %>% column_to_rownames(var = "institution")
+
+# Fix some missing data points
+pubs_by_college = knnImputation(pubs_by_college, k = 2)
+
+# Scale data
+std_pubs = scale(pubs_by_college)
+
+# Preliminary data visualization chart
+pairs(std_pubs)
+```
+
+To start, we will look at clustering analysis of the top graduate schools, internationally.
+```{r, warning = FALSE, echo = FALSE}
+# Show variables that we're working with
+colnames(std_pubs)
+
+# Get PCA loadings
+P <- prcomp(std_pubs, scale = TRUE)
+
+# Get contributions across dimensions
+fviz_contrib(P, choice = "var", axes = 1)
+fviz_contrib(P, choice = "var", axes = 2)
+fviz_contrib(P, choice = "var", axes = 3)
+
+# Plot PCA
+fviz_pca_biplot(P)
+fviz_eig(P, addlabels = TRUE)
+
+# Do clustering
+pam_pubs <- pam(std_pubs, k = 2)
+fviz_cluster(pam_pubs, repel = FALSE) ## Plot the clusters
+fviz_nbclust(std_pubs, kmeans, method = "silhouette", k.max = 8)
+```
+
+```{r, warning = FALSE, echo = FALSE, eval = FALSE}
+# Make a LASSO model to predict US News and World Report CS ranking. 
+set.seed(123)  
+fit.control <- trainControl(method = "repeatedcv", number = 5, repeats = 10)
+
+fit_lasso <- train(CS.rank ~ . - University.Rank, data = std_pubs, method = "glmnet", trControl = fit.control, trace = FALSE)
+
+coef(fit_lasso$finalModel, s = exp(fit_lasso$finalModel$lambdaOpt))
+varImp(fit_lasso$finalModel)
+fit_lasso
+```
+
+To narrow things down, we will now focus on the top 10 graduate schools with respect to publications to see if there are any more interesting relationships among top schools.
+```{r, warning = FALSE, echo = FALSE}
+# Here, we scrub some of the cruff out so we can find more interesting trends between the more 'relevant' institutions
+pubs_reduced = pubs %>%
+  filter(!is.na(canonical) & !is.na(institution))  %>% 
+  distinct(title, .keep_all = TRUE) %>%
+  group_by(institution) %>% 
+  mutate(count = n()) %>%
+  filter(count > 1214)
+  #filter(count > 700)
+
+# Get the number of authors that have published > 0 papers for each institution
+author_counts = pubs_reduced %>% filter(!is.na(canonical) & !is.na(institution))  %>% 
+  distinct(name, .keep_all = TRUE) %>% 
+  group_by(institution) %>%
+  summarise(author_count = n()) 
+
+# Before filtering:
+length(unique(pubs$institution))
+
+# After filtering:
+length(unique(pubs_reduced$institution))
+
+# Reformat to have one college per row, and umbrellas as columns
+pubs_by_college = pubs_reduced %>% 
+  filter(!is.na(canonical) & !is.na(institution))  %>% 
+  group_by(umbrella, institution) %>%
+  count(umbrella, institution) %>%
+  spread(umbrella, n) 
+
+# Get mean authorship for each umbrella area
+authorship = pubs_reduced %>%
+  filter(!is.na(canonical) & !is.na(institution))  %>% 
+  group_by(umbrella, institution) %>%
+  summarise(mean_authors = mean(numauthors))
+
+# Reformat data to where each umbrella has its own variable
+authorship$umbrella = sub("^", "mean_authorcount_", authorship$umbrella )
+authorship = authorship %>%
+  spread(umbrella, mean_authors)
+
+# Make NA's into 0's 
+pubs_by_college[is.na(pubs_by_college)] = 0
+pubs_by_college = as.data.frame(pubs_by_college)
+authorship[is.na(authorship)] = 0
+
+pubs_by_college = left_join(pubs_by_college, author_counts)
+
+# Count NSF fellows (awardees and honorable mentions count the same)
+nsf_reduced = nsf_awards %>%
+  group_by(proposed_institution) %>%
+  summarise(nsf_fellows = n())
+
+# Make NA's into 0's
+nsf_reduced$nsf_fellows[is.na(nsf_reduced$nsf_fellows)] = 0
+
+# Fuzzy join 
+pubs_by_college = stringdist_left_join(pubs_by_college, nsf_reduced, 
+                            by = c("institution" = "proposed_institution"), max_dist = 1)
+
+rankings_data = rankings_data %>% select(c("University.Name", "CS.rank", "University.Rank", "total_citations")) %>% mutate(University.Name = str_squish(University.Name))
+
+# Fuzzy join
+pubs_by_college = stringdist_left_join(pubs_by_college, rankings_data, 
+                            by = c("institution" = "University.Name"), max_dist = 1)
+
+pubs_by_college = select(pubs_by_college, -proposed_institution, -University.Name)
+
+pubs_by_college = pubs_by_college %>% column_to_rownames(var = "institution")
+
+# Fill in missing values (there aren't any here but whatever)
+pubs_by_college = knnImputation(pubs_by_college, k = 2)
+std_pubs = scale(pubs_by_college)
+
+```
+
+```{r, warning = FALSE, echo = FALSE}
+P <- prcomp(std_pubs, scale = TRUE)
+
+fviz_contrib(P, choice = "var", axes = 1)
+fviz_contrib(P, choice = "var", axes = 2)
+
+fviz_pca_biplot(P, repel = TRUE)
+fviz_eig(P, addlabels = TRUE)
+
+pam_pubs <- pam(std_pubs, k = 3)
+fviz_cluster(pam_pubs) ## Plot the clusters
+
+fviz_nbclust(std_pubs, kmeans, method = "silhouette", k.max = 8)
+```
+
+```{r, warning = FALSE, echo = FALSE}
+# Filter down to the top 100
+pubs_reduced = pubs %>%
+  filter(!is.na(canonical) & !is.na(institution))  %>% 
+  distinct(title, .keep_all = TRUE) %>%
+  group_by(institution) %>% 
+  mutate(count = n()) %>%
+  filter(count > 1214)
+
+# Get publication counts for each institution by year
+pubs_by_year =  pubs_reduced %>% 
+  filter(!is.na(canonical) & !is.na(institution))  %>% 
+  group_by(year, institution) %>%
+  count(year, institution)
+
+# Get NSF counts
+nsf_reduced = nsf_awards %>%
+  group_by(year, proposed_institution) %>%
+  summarise(nsf_fellows = n())
+
+# NA values go to 0
+nsf_reduced$nsf_fellows[is.na(nsf_reduced$nsf_fellows)] = 0
+
+# Make this year column into a Date compliant format (just say we're in Jan 1st for everything, doesn't matter)
+pubs_by_year$year = as.Date(paste(pubs_by_year$year, "-01-01", sep = ""))
+
+```
+
+
+
+```{r, warning = FALSE, echo = FALSE}
+# Based on: https://cran.rstudio.com/web/packages/sweep/vignettes/SW01_Forecasting_Time_Series_Groups.html
+
+library(tidyverse)
+library(tidyquant)
+library(timetk)
+library(sweep)
+library(forecast)
+
+# Plot pubs by year
+pubs_by_year %>%
+    ggplot(aes(x = year, y = n, color = institution)) +
+    geom_point() +
+    labs(title = "Publications over time", x = "", y = "Publications",
+         subtitle = "Increasing as time progresses") +
+    scale_y_continuous() +
+    theme_tq()
+
+# Nest to be turned into time series
+pubs_by_year_nest = pubs_by_year %>% group_by(institution) %>% nest()
+
+# Turn into time series data
+tf_data = pubs_by_year_nest %>%
+  mutate(data.ts = map(.x = data,
+                       .f = tk_ts,
+                       select = -year,
+                       frequency = 3,
+                       start = 1970))
+
+# Get ETS model
+tf_data <- tf_data %>%
+    mutate(fit.ets = map(data.ts, ets))
+
+# Get residuals 
+tf_data_ets <- tf_data %>%
+    mutate(augment = map(fit.ets, sw_augment, timetk_idx = TRUE, rename_index = "date")) %>%
+    unnest(augment)
+
+# Get decomposition
+tf_data_decomp <- tf_data %>%
+    mutate(decomp = map(fit.ets, sw_tidy_decomp, timetk_idx = TRUE, rename_index = "date")) %>%
+    unnest(decomp)
+
+# Plot ets model residuals faceted by institution
+tf_data_ets %>%
+    ggplot(aes(x = date, y = .resid, group = institution)) +
+    geom_hline(yintercept = 0, color = "grey40") +
+    geom_line(color = palette_light()[[2]]) +
+    geom_smooth(method = "loess") +
+    labs(title = "Productivity Over Time",
+         subtitle = "ETS Model Residuals", x = "") + 
+    theme_tq() +
+    facet_wrap(~ institution, scale = "free_y", ncol = 3) +
+    scale_x_date(date_labels = "%Y")
+
+# Get forecast using 5 year window
+tf_data_fcast <- tf_data %>%
+    mutate(fcast.ets = map(fit.ets, forecast, h = 5)) %>%
+    mutate(sweep = map(fcast.ets, sw_sweep, fitted = FALSE, timetk_idx = TRUE)) %>%
+    unnest(sweep)
+
+# Plot forecasts faceted by institution
+tf_data_fcast %>%
+    ggplot(aes(x = index, y = n, color = key, group = institution)) +
+    geom_ribbon(aes(ymin = lo.95, ymax = hi.95), 
+                fill = "#D5DBFF", color = NA, size = 0) +
+    geom_ribbon(aes(ymin = lo.80, ymax = hi.80, fill = key), 
+                fill = "#596DD5", color = NA, size = 0, alpha = 0.8) +
+    geom_line() +
+    labs(title = "Publications by Instutions",
+         subtitle = "ETS Model Forecasts",
+         x = "", y = "Publications") +
+    scale_x_date(date_breaks = "5 year", date_labels = "%Y") +
+    scale_color_tq() +
+    scale_fill_tq() +
+    facet_wrap(~ institution, scales = "free_y", ncol = 3) +
+    theme_tq() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
